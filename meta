@@ -1,0 +1,56 @@
+Elegir participantes
+
+### Primer parte
+CPS
+    Modelo directo
+    CPS
+    Modelo de computaciones (falla, error, no determinismo y asincronismo)
+
+Ejemplos:
+    sumarUno, factorial, ejemplo cuentas
+
+### Segunda parte
+#### Node, JS, V8, Browser?
+Event loop
+    http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D
+
+
+[...],cuentas, cuentas-2  | event-loop, event-loop-2, fs, [microqueue],
+
+
+Node utiliza un solo thread para correr, salvo cuando no lo hace
+
+Código implementado en c++ de forma sincrónica; corre en el main thread
+Código implementado en c++ de forma asincrónica; no siempre corre en el main thread
+Código asincrónico implementado en c++ utiliza primitivas asincrónicas siempre que puede
+
+process.env.UV_THREADPOOL_SIZE=4
+
+
+Funciones
+  id
+  factorial
+
+Tail recursive
+
+function fact(n) {
+  return tail_fact(n,1) ;
+}
+
+function tail_fact(n,a) {
+  if (n == 0)
+    return a ;
+  else
+    return tail_fact(n-1,n*a);
+}
+
+La continuacion que tienen que hacer, sino también cuándo se ejecutará lo que siga
+
+Permite modelar distintas computaciones:
+
+Único resultado
+
+falla, Ej: función inversa ()
+no determinísticas, muchos resultados -> generalización de la función: la relación. Una relación puede generar uno, varios o ninguno
+con excepciones. dos flujos de ejecución: uno de éxito (resultado) y uno de fracaso (el error)
+asincrónicas.
