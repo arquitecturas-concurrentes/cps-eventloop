@@ -4,10 +4,11 @@ Elegir participantes
 CPS
     Modelo directo
     CPS
-    Modelo de computaciones (falla, error, no determinismo y asincronismo)
+        Modelo de computaciones (falla, error, no determinismo y asincronismo)
+    callback hell; pipe
 
 Ejemplos:
-    sumarUno, factorial, ejemplo cuentas
+    succ,code smell sucesor, incrementar doble, div
 
 ### Segunda parte
 #### Node, JS, V8, Browser?
@@ -16,41 +17,11 @@ Event loop
 
 
 [...],cuentas, cuentas-2  | event-loop, event-loop-2, fs, [microqueue],
-
+                //Falla y async
+                //Delay en depositar y transferir
 
 Node utiliza un solo thread para correr, salvo cuando no lo hace
 
 Código implementado en c++ de forma sincrónica; corre en el main thread
 Código implementado en c++ de forma asincrónica; no siempre corre en el main thread
 Código asincrónico implementado en c++ utiliza primitivas asincrónicas siempre que puede
-
-process.env.UV_THREADPOOL_SIZE=4
-
-
-Funciones
-  id
-  factorial
-
-Tail recursive
-
-function fact(n) {
-  return tail_fact(n,1) ;
-}
-
-function tail_fact(n,a) {
-  if (n == 0)
-    return a ;
-  else
-    return tail_fact(n-1,n*a);
-}
-
-La continuacion que tienen que hacer, sino también cuándo se ejecutará lo que siga
-
-Permite modelar distintas computaciones:
-
-Único resultado
-
-falla, Ej: función inversa ()
-no determinísticas, muchos resultados -> generalización de la función: la relación. Una relación puede generar uno, varios o ninguno
-con excepciones. dos flujos de ejecución: uno de éxito (resultado) y uno de fracaso (el error)
-asincrónicas.
