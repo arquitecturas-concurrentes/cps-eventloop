@@ -6,6 +6,6 @@ for (let i = 0; i < 5; i++) {
     setTimeout(() => {
         const end = process.hrtime(start);
 
-        console.log(`Callback executed after ${end[0] * NS_PER_SEC + end[1]} ns`);
+        console.log(`Callack ejecutado después de ${end[0] * NS_PER_SEC + end[1]} ns`);
     }, 1000);
 }

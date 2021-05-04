@@ -1,5 +1,5 @@
 function asyncAvg(n, avgCB) {
-    // Save ongoing sum in JS closure.
+    // acumulador para guardar el resultado a traves de las iteraciones
     var sum = 0;
     function help(i, cb) {
         sum += i;
@@ -8,9 +8,8 @@ function asyncAvg(n, avgCB) {
         return;
         }
 
-        // "Asynchronous recursion".
-        // Schedule next operation asynchronously.
-        setImmediate(help.bind(null, i+1, cb));
+        // por medio del timer setImmediate, planificamos la proxima operacion asincrónicamente.
+        setImmediate(()=>help(i+1, cb))
     }
 
     // Start the helper, with CB to call avgCB.

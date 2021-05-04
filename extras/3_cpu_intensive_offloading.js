@@ -12,13 +12,13 @@ const {
           workerData: n
         });
         worker.on('message', (value) => {
-          console.log(`received  value ${value} as return from worker thread`)
+          console.log(`Recibió el valor ${value} como resultado de haber corrido desde el worker thread.`)
           resolve
         });
         worker.on('error', reject);
         worker.on('exit', (code) => {
           if (code !== 0)
-            reject(new Error(`Worker stopped with exit code ${code}`));
+            reject(new Error(`El worker se detuvo con exit code ${code}`));
         });
       });
     };

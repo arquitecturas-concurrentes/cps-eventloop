@@ -4,11 +4,11 @@ function run(iterations) {
   const syncCaseResults = {};
   
   console.log(`\n
-  -----------| SYNC VERSION |-----------
+  -----------| VERSION SINCRÓNICA |-----------
   `);
   
   for (let i = 0; i < iterations; i++) {
-    console.log(`  Iteration ${i + 1}`);
+    console.log(`  Iteracion n ${i + 1}`);
     syncCaseResults[i + 1] = { start: Date.now() };
     const key = crypto.pbkdf2Sync('secret', 'salt', 100000, 64, 'sha512');
     syncCaseResults[i + 1].end = Date.now();
@@ -18,7 +18,7 @@ function run(iterations) {
   const asyncCaseResults = {};
   
   console.log(`\n
-  -----------| ASYNC VERSION |-----------
+  -----------| VERSION ASINCRÓNICA |-----------
   `);
   
   for (let i = 0; i < iterations; i++) {
@@ -29,7 +29,7 @@ function run(iterations) {
         throw err;
       } 
       
-      console.log(`  Iteration ${i + 1}`);
+      console.log(`  Iteracion n ${i + 1}`);
       console.log(`  Key: ${derivedKey.toString('hex')}`);
       asyncCaseResults[i + 1].end = Date.now();
     });
@@ -40,10 +40,10 @@ function run(iterations) {
   -----------| RESULT |-----------
   `);
   
-  console.log(`  CASE 1: Sync version`);
+  console.log(`  CASE 1: Versión sincrónica`);
   printIterationTimestamps(syncCaseResults);
   
-  console.log(`\n  CASE 2: Async version`);
+  console.log(`\n  CASE 2: Versión asincrónica`);
   printIterationTimestamps(asyncCaseResults);
   console.log('\n');
   }, 5000);
@@ -59,12 +59,12 @@ function printIterationTimestamps(result) {
     const start = key === '1' ? 0 : result[key].start - ref;
     const end = result[key].end - ref;
 
-    console.log(`  Iteration ${key} started at ${start} and ended at ${end}`);
+    console.log(`  Iteracion ${key}, empezo en ${start} y termino ${end}`);
   });
 }
 
 if (process.argv && process.argv.length !== 3) {
-  throw new Error('Invalid args provided (Expected number of iterations)');
+  throw new Error('Invalida cantida de argumentos (Se espera que se pase el numero de iteraciones)');
 } else {
   run(parseInt(process.argv[2], 10));
 }

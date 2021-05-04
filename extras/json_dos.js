@@ -4,7 +4,7 @@ var niter = 20;
 var before, str, pos, res, took;
 
 for (var i = 0; i < niter; i++) {
-  obj = { obj1: obj, obj2: obj }; // Doubles in size each iter
+  obj = { obj1: obj, obj2: obj }; // se duplican tamaño en cada iteración.
 }
 
 before = process.hrtime();

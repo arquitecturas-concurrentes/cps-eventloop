@@ -10,7 +10,7 @@ Promise.resolve('resolved').then((result) => {
   console.log(`First promise was ${result}`);
 });
 
-fs.readFile('test.txt', (error) => {
+fs.readFile('text.txt', (error) => {
   setTimeout(() => {
     console.log('Timeout callback executed');
   }, 0);

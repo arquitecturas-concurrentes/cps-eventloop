@@ -1,13 +1,13 @@
-setImmediate(() => console.log('this happens LAST'));
+setImmediate(() => console.log('Esto se ejecuta al final'));
 
 process.nextTick(() => {
-    console.log('all of these...');
+    console.log('Me ejecuto primero');
     process.nextTick(() => {
-        console.log('...happen before...');
+        console.log('...en segundo lugar vengo yo...');
         process.nextTick(() => {
-            console.log('...the immediate ever...');
+            console.log('...inmediatamente tercero estoy yo...');
             process.nextTick(() => {
-                console.log('...has a chance to resolve');
+                console.log('...antes del final estoy aca...');
             });
         });
     });

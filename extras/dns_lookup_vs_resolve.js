@@ -18,7 +18,7 @@ async function run(iterations) {
         throw err;
       } 
       
-      console.log(`  Iteration ${i + 1}`);
+      console.log(`  Iteración nro. ${i + 1}`);
       console.log(`  Address: ${address}, Family: ${family}`);
       dnsLookupResults.iterationEndTimes[i + 1] = Date.now();
     });
@@ -42,7 +42,7 @@ async function run(iterations) {
         throw err;
       } 
       
-      console.log(`  Iteration ${i + 1}`);
+      console.log(`  Iteración n ${i + 1}`);
       console.log(`  Records: ${records.join(', ')}`);
       dnsResolveResults.iterationEndTimes[i + 1] = Date.now();
     });
@@ -67,12 +67,12 @@ async function run(iterations) {
 
 function printIterationTimestamps(result) {
   Object.keys(result).forEach((key) => {
-    console.log(`  Iteration ${key} finished at ${result[key]}`);
+    console.log(`  Iteración ${key} termino en ${result[key]}`);
   });
 }
 
 if (process.argv && process.argv.length !== 3) {
-  throw new Error('Invalid args provided (Expected number of iterations)');
+  throw new Error('Invalida cantidad de argumentos (Se espera la cantidad de iteraciones por parámetro)');
 } else {
   run(parseInt(process.argv[2], 10));
 }
