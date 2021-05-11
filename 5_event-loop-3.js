@@ -5,4 +5,7 @@ console.log('Empezó');
 setTimeout(() => console.log(`pasaron ${Date.now() - inicio} ms`), 100);
 console.log('Terminó');
 
-while (true) { }
+var a = 0
+while (true) { 
+    a = a + 1
+}
