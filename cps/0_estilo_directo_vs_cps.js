@@ -2,19 +2,6 @@ function succesor(n) {
   return n + 1;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function succesorCont(x, continuacion) {
   continuacion(succesor(x));
 }
@@ -22,32 +9,6 @@ function succesorCont(x, continuacion) {
 succesorCont(2, (y) => {
   console.log(y)
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //------------------
 
