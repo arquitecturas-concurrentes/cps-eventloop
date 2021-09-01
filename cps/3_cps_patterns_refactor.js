@@ -13,6 +13,7 @@ function inversa(x, cont) {
   }
 }
 
+let imprimir = (x) => { console.log(x); };
 var cuentaLoca = function(x, cont) {
   siguiente(x, function(y){
       inversa(y, function(z){
@@ -20,24 +21,25 @@ var cuentaLoca = function(x, cont) {
       })
   })
 };
-cuentaLoca(2, (x) => { console.log(x); })
 
-// function componer1(f, g) {
-//   return function(x, cont) {
-//       g(x, function(y){
-//           f(y, cont);
-//       })
-//   }
-// }
+cuentaLoca(2, imprimir)
+//0.6666
 
-// var cuentaLocaCompuesta = componer1(duplicar, componer1(inversa, siguiente))
-// cuentaLocaCompuesta(2, (x) => { console.log(x); })
+function componer1(f, g) {
+  return function(x, cont) {
+      g(x, function(y){
+          f(y, cont);
+      })
+  }
+}
 
+var cuentaLocaCompuesta = componer1(duplicar, componer1(inversa, siguiente))
+cuentaLocaCompuesta(2, imprimir)
 
+function pipeline1(fs) {
+  return fs.reduce(componer1);
+}
 
-// function pipeline1(fs) {
-//     return fs.reduce(componer1);
-// }
+var cuentaLocaPipelined = pipeline1([duplicar, inversa, siguiente])
 
-// var cuentaLocaPipelined = pipeline1([duplicar, inversa, siguiente])
-// cuentaLocaPipelined(2, (x) => { console.log(x); })
+cuentaLocaPipelined(2, imprimir)
