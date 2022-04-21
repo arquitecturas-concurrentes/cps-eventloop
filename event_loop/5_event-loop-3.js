@@ -6,6 +6,6 @@ setTimeout(() => console.log(`pasaron ${Date.now() - inicio} ms`), 100);
 console.log('Terminó');
 
 var a = 0
-while (true) { 
+while (a < 100000000000) { 
     a = a + 1
 }
