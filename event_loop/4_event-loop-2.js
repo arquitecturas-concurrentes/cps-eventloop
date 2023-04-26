@@ -1,7 +1,11 @@
-var a = 0;
+let a = 0;
 
 for (let i = 0; i < 10000; i++) {
-    setImmediate(() => a += 1);
+    setTimeout(() => a += 1, 0); // esto genera un evento...
 }
 
-setImmediate(() => console.log(a));
+setTimeout(() => {
+    console.log('Dentro del setTimeout a vale: ', a);
+}, 3300);
+
+console.log('Fuera del setTimeout a vale: ', a);
