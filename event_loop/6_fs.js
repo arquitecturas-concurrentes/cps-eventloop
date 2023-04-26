@@ -2,12 +2,14 @@ const fs = require('fs');
 
 //Comparandolo con puma
 
-fs.readFile('./SampleTextFile_500kb.txt', (err, contenido) => {
-    console.log(Date.now());
+console.log('Antes de leer: ', Date.now());
+
+fs.readFile('./SampleTextFile_8mb.txt', (err, contenido) => {
+    console.log('1era leida: ', Date.now());
 });
 
-fs.readFile('./SampleTextFile_500kb.txt', (err, contenido) => {
-    console.log(Date.now());
+fs.readFile('./SampleTextFile_8mb.txt', (err, contenido) => {
+    console.log('2da leida: ', Date.now());
 });
 
 
